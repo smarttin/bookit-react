@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter, Route, Redirect } from "react-router-dom";
-import "App.scss";
-import { Header } from "shared/Header";
+import "./App.scss";
+import { Header } from "./shared/Header";
 import RentalListing from "./components/rental/rental-list/RentalListing";
-import RentalDetail from "components/rental/rental-detail/RentalDetail";
+import RentalDetail from "./components/rental/rental-detail/RentalDetail";
 import { Provider } from "react-redux";
-import store from 'store';
+import store from './store';
 
 function App() {
   
