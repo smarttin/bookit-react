@@ -1,8 +1,12 @@
 import { combineReducers } from 'redux';
-import rentalReducer from './rental-reducer';
+import rentalReducer from './rentalReducer';
+import authReducer from './authReducer.js';
+import { reducer as formReducer } from 'redux-form'
 
 const rootReducer = combineReducers({
-  rental: rentalReducer
+  rental: rentalReducer,
+  form: formReducer,
+  auth: authReducer
 });
 
 export default rootReducer;
