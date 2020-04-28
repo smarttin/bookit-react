@@ -4,6 +4,7 @@ import { fetchRentalById } from '../../../actions';
 import './RentalDetail.scss';
 import RentalDetailInfo from './RentalDetailInfo';
 import RentalMap from './RentalMap';
+import Booking from '../../booking/Booking';
 
 class RentalDetail extends Component {
 
@@ -13,7 +14,7 @@ class RentalDetail extends Component {
   }
   
   render() {
-    const rental = this.props.rental;
+    const { rental } = this.props;
     if (rental._id) {
       return (
         <section id='rentalDetails'>
@@ -23,9 +24,7 @@ class RentalDetail extends Component {
                 <img src={rental.image} alt=''></img>
               </div>
               <div className='col-md-6'>
-              
                 <RentalMap location={`${rental.city}, ${rental.street}`} />
-
               </div>
             </div>
           </div>
@@ -35,7 +34,9 @@ class RentalDetail extends Component {
               <div className='col-md-8'>
                 <RentalDetailInfo rental={rental} />
               </div>
-              <div className='col-md-4'> BOOKING</div>
+              <div className='col-md-4'>
+                <Booking rental={rental} />
+              </div>
             </div>
           </div>
         </section>

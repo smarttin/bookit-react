@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import './AuthForm.scss'
 import RegisterForm from './RegisterForm';
-import * as actions from '../../actions';
+import { register } from '../../actions/authActions';
 import { Redirect } from "react-router-dom";
 
 class Register extends Component {
@@ -11,7 +11,7 @@ class Register extends Component {
   };
   // useCallback
   registerUser(userData) {
-    actions.register(userData)
+    register(userData)
       .then(() => this.setState({ redirect: true }))
       .catch((errors) => this.setState({ errors }));
   }
