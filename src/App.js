@@ -8,17 +8,17 @@ import { Provider } from "react-redux";
 import store from './store';
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
-import * as actions from "./actions";
+import { checkAuthState, logout } from "./actions/authActions";
 import { ProtectedRoute } from "./components/shared/auth/ProtectedRoute";
 import { LoggedInRoute } from "./components/shared/auth/LoggedInRoute";
 
 class App extends Component {
   componentDidMount() {
-    store.dispatch(actions.checkAuthState())
+    store.dispatch(checkAuthState())
   }
 
   logout() {
-    store.dispatch(actions.logout())
+    store.dispatch(logout())
   }
   
   render() {

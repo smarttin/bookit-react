@@ -3,12 +3,12 @@ import './AuthForm.scss';
 import LoginForm from './LoginForm';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import * as actions from '../../actions';
+import { login } from '../../actions/authActions';
 
 class Login extends React.Component {
 
   loginUser(userData) {
-    this.props.dispatch(actions.login(userData));
+    this.props.dispatch(login(userData));
   }
 
   render() {
