@@ -35,8 +35,7 @@ class Booking extends Component {
       bookings.forEach((booking) => {
         const dateRange = getRangeOfDates(
           booking.startAt,
-          booking.endAt,
-          "Y/MM/DD"
+          booking.endAt
         );
         // console.log(dateRange);
         this.bookedOutDates.push(...dateRange);
@@ -46,15 +45,15 @@ class Booking extends Component {
 
   // prettier-ignore
   checkInvalidDates(date) {
-    if (this.bookedOutDates.includes(date.format("Y/MM/DD")) || date.diff(moment(), "days") < 0) {
+    if (this.bookedOutDates.includes(date.format("YYYY-MM-DD")) || date.diff(moment(), "days") < 0) {
       return true;
     }
     return false
   }
 
   handleApply(event, picker) {
-    const startAt = picker.startDate.format("Y/MM/DD");
-    const endAt = picker.endDate.format("Y/MM/DD");
+    const startAt = picker.startDate.format("YYYY-MM-DD");
+    const endAt = picker.endDate.format("YYYY-MM-DD");
     this.dateRef.current.value = startAt + " to " + endAt;
     this.setState({
       proposedBooking: {
