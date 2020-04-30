@@ -18,11 +18,13 @@ export const checkAuthState = () => dispatch => {
 
 export const login = (userData) => dispatch => {
   return axios.post("/api/v1/users/login", userData)
-    .then(response => {
-      const token = response.data;
-      authService.saveToken(token)
+  .then(response => {
+    const token = response.data;
+    authService.saveToken(token)
+    const username = authService.getUsername();
       dispatch({
-        type: LOGIN_SUCCESS
+        type: LOGIN_SUCCESS,
+        payload: username
       })
     })
     .catch(err =>{

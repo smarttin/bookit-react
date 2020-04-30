@@ -17,7 +17,7 @@ mongoose
   .then(() => {
     if (process.env.NODE_ENV !== 'production') {
       const fakeDb = new FakeDb();
-      // fakeDb.seedDb();
+      fakeDb.seedDb();
     }
     console.log("Connected to database!");
   })

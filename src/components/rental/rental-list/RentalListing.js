@@ -1,19 +1,21 @@
 import React, { Component } from "react";
-import RentalList from "./RentalList";
 import { connect } from "react-redux";
-import { fetchRentals } from "../../../actions";
+
+import RentalList from "./RentalList";
+import { fetchRentals } from "../../../actions/rentalActions";
 
 
 class RentalListing extends Component {
   componentDidMount() {
     this.props.dispatch(fetchRentals());
   }
-
+  
   render() {
+    const { rentals } = this.props.rentals // check for errors and add loading spinner
     return (
       <section id="rentalListing">
         <h1 className="page-title">Your Home All Around the World</h1>
-        <RentalList rentals={this.props.rentals} />
+        <RentalList rentals={rentals} />
       </section>
     );
   }
@@ -21,7 +23,7 @@ class RentalListing extends Component {
 
 const mapStateToProps = state => {
   return {
-    rentals: state.rental.rentals
+    rentals: state.rental
   }
 }
 

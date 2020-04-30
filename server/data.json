@@ -80,11 +80,11 @@
   "users": [{
     "username": "Test User",
     "email": "test@gmail.com",
-    "password": "testtest"
+    "password": "11111"
     },{
     "username": "Test User1",
-    "email": "test1@gmail.com",
-    "password": "testtest1"
+    "email": "tester@gmail.com",
+    "password": "11111"
     }
   ]
 }
